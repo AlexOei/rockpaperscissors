@@ -6,6 +6,7 @@
 </head>
 <body>
     <script>
+
         function computerPlay () {
             let num = Math.round(Math.random() * 3);
             let result = "";
@@ -19,6 +20,40 @@
             return result;
         }
 
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            
+            let win = 'You win! ' + playerSelection + ' beats ' + computerSelection +"!";
+            let lose = 'You lose!' + computerSelection + ' beats ' + playerSelection +"!";  
+
+            if (playerSelection == computerSelection){
+                console.log('Its a tie!')
+            }
+            if (playerSelection == 'rock') {
+                if (computerSelection == 'scissors') {
+                    console.log(win);
+                } else if (computerSelection == 'paper') {
+                    console.log(lose);
+                }
+            }
+            if (playerSelection == 'scissors') {
+                if (computerSelection == 'paper') {
+                    console.log(win);
+                } else if (computerSelection =='rock') {
+                    console.log(lose);
+                }
+            }
+            if (playerSelection == 'paper') {
+                if (computerSelection == 'rock') {
+                    console.log(win);
+                } else if (computerSelection == 'scissors') {
+                    console.log(lose);
+                }
+            }
+            
+        }
+
+        
 
 
 
