@@ -20,11 +20,14 @@
             return result;
         }
 
-        function playRound(playerSelection, computerSelection) {
+        function playRound(playerSelection) {
             playerSelection = playerSelection.toLowerCase();
-            
+            computerSelection = computerPlay()
             let win = 'You win! ' + playerSelection + ' beats ' + computerSelection +"!";
-            let lose = 'You lose!' + computerSelection + ' beats ' + playerSelection +"!";  
+            let lose = 'You lose! ' + computerSelection + ' beats ' + playerSelection +"!";
+            let playerwin = 0;
+            let compwin = 1;
+             
 
             if (playerSelection == computerSelection){
                 console.log('Its a tie!')
@@ -32,26 +35,59 @@
             if (playerSelection == 'rock') {
                 if (computerSelection == 'scissors') {
                     console.log(win);
+                    return playerwin;
                 } else if (computerSelection == 'paper') {
                     console.log(lose);
+                    return compwin;
                 }
             }
             if (playerSelection == 'scissors') {
                 if (computerSelection == 'paper') {
                     console.log(win);
+                    return playerwin;
                 } else if (computerSelection =='rock') {
                     console.log(lose);
+                    return compwin;
                 }
             }
             if (playerSelection == 'paper') {
                 if (computerSelection == 'rock') {
                     console.log(win);
+                    return playerwin;
                 } else if (computerSelection == 'scissors') {
                     console.log(lose);
+                    return compwin;
                 }
             }
             
         }
+
+        function Game() {
+            playerscore = 0;
+            compscore = 0;
+            while (playerscore < 3 && compscore < 3){
+                playerchoice = prompt('Rock, Paper, or Scissors?')
+
+                let result = playRound(playerchoice);
+
+                result;
+
+                
+                if (result == 0){
+                    ++playerscore;
+                }
+                if (result == 1){
+                    ++compscore;
+                }
+                console.log("Score is " + playerscore + " to " + compscore);
+            }  
+            if (playerscore == 3){
+            console.log('You win!');
+            }
+            if (compscore == 3){
+                console.log('You lose!');
+            }
+        }   
 
         
 
